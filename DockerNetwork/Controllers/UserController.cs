@@ -15,7 +15,6 @@ namespace DockerNetwork.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    //[ApiController]
     public class UserController : BaseController
     {
 
