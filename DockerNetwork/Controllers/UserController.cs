@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
-
-
-
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.JsonPatch;
 namespace DockerNetwork.Controllers
 {
 
@@ -18,13 +16,15 @@ namespace DockerNetwork.Controllers
     public class UserController : BaseController
     {
 
-   
+
 
 
         private TestContext _testContext;
+        private ILogger<UserController> _ilogger;
 
-        public UserController(TestContext estContext)
+        public UserController(TestContext estContext, ILogger<UserController> ilogger)
         {
+            _ilogger = ilogger;
             _testContext = estContext;
         }
 
@@ -38,17 +38,24 @@ namespace DockerNetwork.Controllers
                    .SingleOrDefault(u => u.Id == UserIdentity.UserId);
             if (user == null)
             {
-                return NotFound();
+                throw new UserOperationException($"错误的用户上下文id{UserIdentity.UserId}");
             }
+
             return Json(user);
         }
 
 
         [Route("")]
-        [HttpPost]
-        public async Task<IActionResult> Patch()
+        [HttpPatch]
+        public async Task<IActionResult> Patch([FromBody]JsonPatchDocument<Models.User>patch)
         {
-            return Content("");
+
+            var user =await _testContext.User.SingleOrDefaultAsync(c => c.Id == UserIdentity.UserId);
+            patch.ApplyTo(user);
+
+            _testContext.Update(user);
+            _testContext.SaveChanges();
+            return Json(user);
         }
 
 

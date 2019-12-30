@@ -19,6 +19,7 @@ namespace DockerNetwork
         public DbSet<UserTag> UserTags { get; set; }
         public DbSet<UserProperty> UserPropertys { get; set; }
         public DbSet<BPfile> BPfiles { get; set; }
+         
 
         
     }
