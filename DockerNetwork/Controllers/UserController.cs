@@ -58,6 +58,24 @@ namespace DockerNetwork.Controllers
             return Json(user);
         }
 
+        /// <summary>
+        ///检测是否存在，如果不存在 则创建
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
+        [Route("check-or-create")]
+        [HttpPost]
+        public async Task<IActionResult> CheckOrCreate(string phone)
+        {
+            //检测是否存在
+            var check = await _testContext.User.AnyAsync(c => c.Phone == phone);
+            if (!check)
+            {
+                _testContext.User.Add(new Models.User { Phone=phone});
+            }
+            return Ok();
+        }
+
 
     }
 }

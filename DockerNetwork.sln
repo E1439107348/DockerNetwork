@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerNetwork", "DockerNetwork\DockerNetwork.csproj", "{40F247DC-7998-4096-B9E7-912C07B65DF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerNetwork", "DockerNetwork\DockerNetwork.csproj", "{40F247DC-7998-4096-B9E7-912C07B65DF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B976F4B0-CA1A-4212-8FE9-46CD1933A942}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.API.UnitTests", "User.API.UnitTests\User.API.UnitTests.csproj", "{4ED792A0-1C8E-48AF-9E02-77B695A82DEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Identity", "User.Identity\User.Identity.csproj", "{C9A37D27-4CFC-4D4A-8FF7-5B3AB19C5FDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,20 @@ Global
 		{40F247DC-7998-4096-B9E7-912C07B65DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40F247DC-7998-4096-B9E7-912C07B65DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40F247DC-7998-4096-B9E7-912C07B65DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED792A0-1C8E-48AF-9E02-77B695A82DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED792A0-1C8E-48AF-9E02-77B695A82DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED792A0-1C8E-48AF-9E02-77B695A82DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED792A0-1C8E-48AF-9E02-77B695A82DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A37D27-4CFC-4D4A-8FF7-5B3AB19C5FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A37D27-4CFC-4D4A-8FF7-5B3AB19C5FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A37D27-4CFC-4D4A-8FF7-5B3AB19C5FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A37D27-4CFC-4D4A-8FF7-5B3AB19C5FDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4ED792A0-1C8E-48AF-9E02-77B695A82DEC} = {B976F4B0-CA1A-4212-8FE9-46CD1933A942}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D34D736E-7811-4FD1-8D91-3B52E17955DD}
